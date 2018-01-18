@@ -177,7 +177,7 @@ bool UrDriver::uploadProg() {
 	cmd_str += "\t\t\tcmd_servo_state = SERVO_IDLE\n";
 	cmd_str += "\t\t\texit_critical\n";
 	cmd_str += "\t\t\tif do_brake:\n";
-	cmd_str += "\t\t\t\tstopj(1.0)\n";
+	cmd_str += "\t\t\t\tstopj(10.0)\n";
 	cmd_str += "\t\t\t\tsync()\n";
 	cmd_str += "\t\t\telif state == SERVO_RUNNING:\n";
 
@@ -213,7 +213,7 @@ bool UrDriver::uploadProg() {
 	cmd_str += "\t\t\tset_servo_setpoint(q)\n";
 	cmd_str += "\t\tend\n";
 	cmd_str += "\tend\n";
-	cmd_str += "\tsleep(.1)\n";
+	cmd_str += "\tsleep(.5)\n";
 	cmd_str += "\tsocket_close()\n";
 	cmd_str += "\tkill thread_servo\n";
 	cmd_str += "end\n";
